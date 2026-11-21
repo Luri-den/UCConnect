@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Union County, Indiana — Concept Site</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#1f5f5b; --primary-ink:#fff; --accent:#e0a43a; --bg:#f6f1e7; --paper:#fffdf8;
+  --ink:#1d2320; --muted:#5d665f; --line:#e3dccd; --radius:16px;
+  --display:'Fraunces', Georgia, 'Times New Roman', serif;
+  --body:'Public Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(30px,4vw,44px);font-weight:700}
+.eyebrow{font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--primary)}
+.sub{color:var(--muted);max-width:620px;margin:10px 0 0}
+
+/* concept strip */
+.concept{background:#1d2320;color:#f3efe6;font-size:13px;text-align:center;padding:7px 14px}
+.concept b{color:var(--accent)}
+
+/* header */
+header.site{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+.brand .mark{width:40px;height:40px;border-radius:11px;background:var(--primary);display:grid;place-items:center;flex:none}
+.brand .mark svg{width:24px;height:24px}
+.brand .name{font-family:var(--display);font-weight:800;font-size:20px;line-height:1}
+.brand .name small{display:block;font-family:var(--body);font-weight:600;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+nav.main{display:flex;gap:4px}
+nav.main a{text-decoration:none;font-weight:600;font-size:15px;padding:9px 13px;border-radius:999px}
+nav.main a:hover{background:color-mix(in srgb,var(--primary) 10%,transparent)}
+nav.main a.cta{background:var(--primary);color:var(--primary-ink)}
+.burger{display:none;background:none;border:0;width:44px;height:44px;border-radius:12px;cursor:pointer}
+.burger span{display:block;width:22px;height:2px;background:var(--ink);margin:5px auto;transition:.25s}
+@media (max-width:860px){
+  .burger{display:block}
+  nav.main{position:absolute;top:68px;left:0;right:0;flex-direction:column;background:var(--paper);border-bottom:1px solid var(--line);padding:10px 16px 18px;gap:2px;display:none}
+  nav.main.open{display:flex}
+  nav.main a{padding:14px;font-size:17px}
+  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:color-mix(in srgb,var(--primary) 14%,var(--bg))}
+.hero .art{position:absolute;inset:0}
+.hero .art svg{width:100%;height:100%}
+.hero .photo{position:absolute;inset:0;background-size:cover;background-position:center}
+.hero .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.55),rgba(0,0,0,.1))}
+.hero .inner{position:relative;padding:96px 0 150px;max-width:640px}
+.hero h1{font-size:clamp(42px,6.4vw,78px);font-weight:800}
+.hero p{font-size:19px;margin:18px 0 28px;max-width:520px}
+.hero.has-photo{color:#fff}
+.hero.has-photo .eyebrow{color:#fff}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;text-decoration:none;padding:14px 22px;border-radius:999px;border:2px solid transparent;font-size:16px;cursor:pointer;font-family:var(--body)}
+.btn.solid{background:var(--primary);color:var(--primary-ink)}
+.btn.ghost{border-color:currentColor;background:color-mix(in srgb,var(--paper) 60%,transparent)}
+.hero.has-photo .btn.ghost{background:transparent}
+.sun{animation:float 9s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(10px)}}
+
+/* quick tiles */
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:-70px;position:relative;z-index:2}
+.tile{background:var(--paper);border-radius:var(--radius);padding:22px;text-decoration:none;box-shadow:0 10px 30px rgba(30,30,20,.08);border:1px solid var(--line);transition:transform .2s,box-shadow .2s}
+.tile:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(30,30,20,.12)}
+.tile .ic{width:44px;height:44px;border-radius:12px;background:color-mix(in srgb,var(--accent) 22%,transparent);display:grid;place-items:center;margin-bottom:14px}
+.tile .ic svg{width:24px;height:24px;stroke:var(--primary)}
+.tile h3{font-size:21px}
+.tile p{margin:6px 0 0;color:var(--muted);font-size:15px}
+@media (max-width:860px){.tiles{grid-template-columns:1fr 1fr}}
+
+section.block{padding:84px 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:30px}
+
+/* events */
+.events{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
+.event{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:flex;gap:16px}
+.date{flex:none;width:64px;text-align:center;border-radius:12px;background:var(--primary);color:var(--primary-ink);padding:8px 0}
+.date .m{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.date .d{font-family:var(--display);font-size:30px;font-weight:800;line-height:1}
+.event h3{font-size:20px}
+.event .meta{font-size:14px;color:var(--muted);margin:4px 0 6px}
+.event p{margin:0;font-size:15px}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:color-mix(in srgb,var(--accent) 30%,transparent);border-radius:999px;padding:2px 8px;margin-left:6px;vertical-align:middle;font-family:var(--body)}
+.empty{color:var(--muted);font-style:italic}
+
+/* places */
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 15px;font-weight:600;font-size:14px;cursor:pointer;font-family:var(--body);color:var(--ink)}
+.chip.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.places{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.place{background:var(--paper);border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column}
+.place .pic{aspect-ratio:16/10;background-size:cover;background-position:center;position:relative;display:grid;place-items:center}
+.place .pic svg{width:64px;height:64px;stroke:#fff;opacity:.9}
+.place .pic .cat{position:absolute;left:12px;top:12px;background:rgba(255,255,255,.92);color:#1d2320;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px}
+.place .txt{padding:18px 20px 22px}
+.place h3{font-size:22px}
+.place p{margin:8px 0 0;font-size:15px;color:var(--muted)}
+.place .addr{font-size:14px;margin-top:10px;font-weight:600}
+
+/* why */
+.why{background:var(--primary);color:var(--primary-ink)}
+.why .eyebrow{color:var(--accent)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:36px 0 44px}
+.stat{border-top:2px solid color-mix(in srgb,var(--primary-ink) 30%,transparent);padding-top:14px}
+.stat .n{font-family:var(--display);font-size:46px;font-weight:800;line-height:1}
+.stat .l{font-size:14px;opacity:.85;margin-top:6px}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.col{background:color-mix(in srgb,var(--primary-ink) 8%,transparent);border-radius:var(--radius);padding:24px}
+.col h3{font-size:22px;margin-bottom:8px}
+.col p{margin:0;opacity:.9;font-size:15px}
+@media (max-width:860px){.stats{grid-template-columns:1fr 1fr}.cols{grid-template-columns:1fr}}
+
+/* directory */
+.search{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:22px}
+.search input{flex:1;min-width:220px;font:inherit;padding:13px 18px;border-radius:999px;border:1px solid var(--line);background:var(--paper)}
+.biz{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.bcard{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px}
+.bcard h3{font-family:var(--body);font-size:17px;font-weight:700}
+.bcard .c{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--primary);margin-bottom:6px}
+.bcard .a{font-size:14px;color:var(--muted);margin-top:6px}
+.bcard .links{display:flex;gap:14px;margin-top:10px;font-size:14px;font-weight:600}
+.bcard .links a{color:var(--primary)}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:start}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+.card dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:12px 18px}
+.card dt{font-weight:700;font-size:14px;color:var(--muted)}
+.card dd{margin:0}
+@media (max-width:860px){.contact{grid-template-columns:1fr}}
+footer{padding:34px 0 60px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+
+/* ===== EDITOR ===== */
+.edit-fab{position:fixed;right:20px;bottom:20px;z-index:60;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:14px 20px;font:700 15px var(--body);display:flex;gap:8px;align-items:center;box-shadow:0 10px 30px rgba(0,0,0,.25);cursor:pointer}
+.edit-fab svg{width:18px;height:18px}
+html[data-locked] .edit-fab{display:none}
+body.editing [data-edit]{outline:2px dashed color-mix(in srgb,var(--accent) 80%,transparent);outline-offset:3px;border-radius:4px;cursor:text}
+body.editing [data-edit]:focus{outline:2px solid var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent)}
+body.editing [data-item]{cursor:pointer;position:relative}
+body.editing [data-item]:hover{outline:3px solid var(--accent);outline-offset:2px}
+body.editing [data-item]::after{content:"Click to edit";position:absolute;right:10px;bottom:10px;background:var(--accent);color:#1d2320;font:700 11px var(--body);padding:3px 8px;border-radius:999px;opacity:0;transition:.15s}
+body.editing [data-item]:hover::after{opacity:1}
+.edit-hint{display:none;position:fixed;left:50%;transform:translateX(-50%);top:12px;z-index:70;background:var(--accent);color:#1d2320;font:700 14px var(--body);padding:9px 16px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.2)}
+body.editing .edit-hint{display:block}
+body.editing{padding-right:400px}
+@media (max-width:860px){body.editing{padding-right:0}}
+
+.panel{position:fixed;top:0;right:0;bottom:0;width:400px;max-width:100%;background:#fff;z-index:65;box-shadow:-10px 0 40px rgba(0,0,0,.15);display:none;flex-direction:column;font-family:var(--body);color:#1d2320;font-size:15px}
+body.editing .panel{display:flex}
+body.editing.panel-min .panel{transform:translateY(calc(100% - 56px))}
+body.editing.panel-min{padding-right:0}
+.panel .ph{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid #eee}
+.panel .ph b{font-size:16px}
+.panel .ph .saved{font-size:12px;color:#3a7d44;font-weight:600}
+.panel .x{border:0;background:#f1f1f1;border-radius:10px;padding:8px 12px;font:600 14px var(--body);cursor:pointer}
+.tabs{display:flex;gap:4px;padding:10px 12px;border-bottom:1px solid #eee;overflow-x:auto}
+.tabs button{border:0;background:none;padding:8px 12px;border-radius:999px;font:600 14px var(--body);cursor:pointer;white-space:nowrap;color:#444}
+.tabs button.on{background:#1d2320;color:#fff}
+.pbody{flex:1;overflow:auto;padding:16px}
+.pbody .help{font-size:13px;color:#666;margin:0 0 14px;background:#f7f5ef;padding:10px 12px;border-radius:10px}
+details.item{border:1px solid #e6e6e6;border-radius:12px;margin-bottom:10px;background:#fff}
+details.item[open]{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 25%,transparent)}
+details.item summary{padding:12px 14px;cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:10px}
+details.item summary::-webkit-details-marker{display:none}
+details.item summary small{color:#888;font-weight:500}
+.fields{padding:0 14px 14px;display:grid;gap:10px}
+.fields label{display:grid;gap:4px;font-size:12px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.05em}
+.fields input,.fields textarea,.fields select{font:15px var(--body);padding:9px 11px;border:1px solid #d9d9d9;border-radius:9px;text-transform:none;letter-spacing:0;font-weight:400;color:#1d2320;width:100%}
+.fields textarea{min-height:76px;resize:vertical}
+.fields .row{display:flex;gap:8px;flex-wrap:wrap}
+.pbtn{border:1px solid #d6d6d6;background:#fff;border-radius:10px;padding:10px 14px;font:600 14px var(--body);cursor:pointer;color:#1d2320}
+.pbtn.primary{background:#1d2320;color:#fff;border-color:#1d2320}
+.pbtn.danger{color:#b3261e;border-color:#f0c9c6}
+.pbtn.wide{width:100%;margin-bottom:10px;text-align:left}
+.swatches{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px}
+.sw{border:2px solid #e6e6e6;border-radius:12px;padding:10px;cursor:pointer;background:#fff;text-align:left;font:600 14px var(--body)}
+.sw.on{border-color:#1d2320}
+.sw .dots{display:flex;gap:4px;margin-bottom:6px}
+.sw .dots i{width:22px;height:22px;border-radius:50%;display:block;border:1px solid rgba(0,0,0,.1)}
+.colorrow{display:flex;gap:12px;margin-bottom:18px}
+.colorrow label{flex:1;display:grid;gap:4px;font-size:12px;font-weight:700;color:#555;text-transform:uppercase}
+.colorrow input{width:100%;height:42px;border:1px solid #ddd;border-radius:9px;padding:2px}
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(30px);background:#1d2320;color:#fff;padding:12px 18px;border-radius:12px;font:600 14px var(--body);opacity:0;transition:.25s;z-index:90;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media (max-width:860px){
+  .panel{width:100%;top:auto;height:62vh;border-radius:18px 18px 0 0;transition:transform .25s}
+  .edit-fab{right:14px;bottom:14px}
+  body.editing .edit-hint{display:none}
+  body.editing .edit-fab{bottom:calc(62vh + 12px)}
+  body.editing.panel-min .edit-fab{bottom:70px}
+}
+</style>
+</head>
+<body>
+
+<div class="concept"><b>Concept demo</b> — not an official Union County Development Corporation website. Listings are drawn from the UCDC's former online directory; events marked "Sample" are placeholders.</div>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#top">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M5 20V10l7-5 7 5v10"/><path d="M12 5V2"/><path d="M9 20v-5h6v5"/></svg></span>
+      <span class="name"><span data-edit="brand" data-single></span><small data-edit="brandSub" data-single></small></span>
+    </a>
+    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="main">
+      <a href="#events">Events</a>
+      <a href="#visit">Visit</a>
+      <a href="#business">Do Business</a>
+      <a href="#directory">Directory</a>
+      <a href="#contact" class="cta">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="art" id="heroArt">
+    <svg viewBox="0 0 1440 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <circle class="sun" cx="1120" cy="170" r="74" style="fill:var(--accent);opacity:.9"/>
+      <path d="M0 360 C 220 300, 420 330, 640 300 S 1100 250, 1440 300 V640 H0Z" style="fill:var(--primary);opacity:.18"/>
+      <path d="M0 420 C 260 360, 520 400, 760 370 S 1180 330, 1440 380 V640 H0Z" style="fill:var(--primary);opacity:.3"/>
+      <path d="M600 470 C 800 440, 1000 450, 1440 430 V640 H600Z" style="fill:#6fa8c2;opacity:.55"/>
+      <path d="M0 500 C 300 450, 560 520, 900 480 S 1300 470, 1440 500 V640 H0Z" style="fill:var(--primary);opacity:.55"/>
+      <path d="M0 560 C 340 520, 700 590, 1040 550 S 1340 545, 1440 560 V640 H0Z" style="fill:var(--primary);opacity:.85"/>
+      <g style="fill:var(--primary)" opacity=".9">
+        <path d="M1240 470 l14 -44 l14 44z"/><path d="M1270 476 l18 -58 l18 58z"/><path d="M1310 470 l12 -38 l12 38z"/>
+        <path d="M120 520 l16 -52 l16 52z"/><path d="M150 524 l20 -64 l20 64z"/>
+      </g>
+      <g transform="translate(980 420)" style="fill:var(--paper)" opacity=".95">
+        <rect x="0" y="40" width="120" height="70" rx="2"/>
+        <rect x="45" y="0" width="30" height="40"/>
+        <path d="M40 0 L60 -26 L80 0Z"/>
+        <path d="M-6 40 L60 18 L126 40Z"/>
+      </g>
+    </svg>
+  </div>
+  <div class="photo" id="heroPhoto" hidden></div>
+  <div class="wrap">
+    <div class="inner">
+      <div class="eyebrow" data-edit="heroEyebrow" data-single></div>
+      <h1 data-edit="heroTitle"></h1>
+      <p data-edit="heroSub"></p>
+      <div class="btns">
+        <a href="#visit" class="btn solid"><span data-edit="ctaVisit" data-single></span> →</a>
+        <a href="#business" class="btn ghost"><span data-edit="ctaBiz" data-single></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="tiles">
+    <a class="tile" href="#visit"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 14h5l-3 6h12l-3-6h5z"/><path d="M12 20v2"/></svg></div><h3 data-edit="t1h" data-single></h3><p data-edit="t1p"></p></a>
+    <a class="tile" href="#events"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div><h3 data-edit="t2h" data-single></h3><p data-edit="t2p"></p></a>
+    <a class="tile" href="#business"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6"/></svg></div><h3 data-edit="t3h" data-single></h3><p data-edit="t3p"></p></a>
+    <a class="tile" href="#directory"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></div><h3 data-edit="t4h" data-single></h3><p data-edit="t4p"></p></a>
+  </div>
+</div>
+
+<section class="block" id="events">
+  <div class="wrap">
+    <div class="head"><div><div class="eyebrow">Calendar</div><h2 data-edit="eventsTitle" data-single></h2><p class="sub" data-edit="eventsSub"></p></div></div>
+    <div class="events" id="eventList"></div>
+  </div>
+</section>
+
+<section class="block" id="visit" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <div><div class="eyebrow">Visit</div><h2 data-edit="placesTitle" data-single></h2><p class="sub" data-edit="placesSub"></p></div>
+      <div class="chips" id="placeChips"></div>
+    </div>
+    <div class="places" id="placeList"></div>
+  </div>
+</section>
+
+<section class="block why" id="business">
+  <div class="wrap">
+    <div class="eyebrow">Do business here</div>
+    <h2 data-edit="whyTitle" data-single></h2>
+    <div class="stats">
+      <div class="stat"><div class="n" data-edit="s1n" data-single></div><div class="l" data-edit="s1l" data-single></div></div>
+      <div class="stat"><div class="n" data-edit="s2n" data-single></div><div class="l" data-edit="s2l" data-single></div></div>
+      <div class="stat"><div class="n" data-edit="s3n" data-single></div><div class="l" data-edit="s3l" data-single></div></div>
+      <div class="stat"><div class="n" data-edit="s4n" data-single></div><div class="l" data-edit="s4l" data-single></div></div>
+    </div>
+    <div class="cols">
+      <div class="col"><h3 data-edit="w1h" data-single></h3><p data-edit="w1p"></p></div>
+      <div class="col"><h3 data-edit="w2h" data-single></h3><p data-edit="w2p"></p></div>
+      <div class="col"><h3 data-edit="w3h" data-single></h3><p data-edit="w3p"></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="directory">
+  <div class="wrap">
+    <div class="head"><div><div class="eyebrow">Members</div><h2 data-edit="bizTitle" data-single></h2><p class="sub" data-edit="bizSub"></p></div></div>
+    <div class="search"><input id="bizSearch" type="search" placeholder="Search businesses, clubs, addresses…" aria-label="Search directory"><div class="chips" id="bizChips"></div></div>
+    <div class="biz" id="bizList"></div>
+  </div>
+</section>
+
+<section class="block" id="contact" style="padding-top:0">
+  <div class="wrap contact">
+    <div><div class="eyebrow">Contact</div><h2 data-edit="contactTitle" data-single></h2><p class="sub" data-edit="contactBody"></p></div>
+    <div class="card"><dl>
+      <dt>Office</dt><dd data-edit="address"></dd>
+      <dt>Phone</dt><dd><a id="phoneLink" href="#"><span data-edit="phone" data-single></span></a></dd>
+      <dt>Email</dt><dd><a id="emailLink" href="#"><span data-edit="email" data-single></span></a></dd>
+      <dt>Hours</dt><dd data-edit="hours"></dd>
+    </dl></div>
+  </div>
+</section>
+
+<footer><div class="wrap" data-edit="footer"></div></footer>
+
+<!-- ===== Editor ===== -->
+<div class="edit-hint">Editing — click any outlined text to change it</div>
+<button class="edit-fab" id="editFab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg><span>Edit this site</span></button>
+<aside class="panel" id="panel" aria-label="Site editor">
+  <div class="ph"><div><b>Site editor</b> <span class="saved" id="savedNote"></span></div><div><button class="x" id="minBtn">Hide</button> <button class="x" id="doneBtn">Done</button></div></div>
+  <div class="tabs" id="tabs">
+    <button data-tab="events" class="on">Events</button>
+    <button data-tab="places">Places</button>
+    <button data-tab="businesses">Directory</button>
+    <button data-tab="look">Look</button>
+    <button data-tab="save">Save &amp; share</button>
+  </div>
+  <div class="pbody" id="pbody"></div>
+</aside>
+<div class="toast" id="toast"></div>
+
+<script id="site-data" type="application/json">null</script>
+<script>
+(function(){
+const DEFAULT = {
+  theme:'lakeside', custom:null, heroPhoto:null,
+  text:{
+    brand:'Union County', brandSub:'Indiana · Development Corp.',
+    heroEyebrow:'Liberty · West College Corner · Whitewater Lakes',
+    heroTitle:"It's fun to play, work and live here.",
+    heroSub:'Two state recreation areas, a lake-country weekend an hour from Cincinnati and Dayton, and a courthouse-square town that still knows your name.',
+    ctaVisit:'Plan a visit', ctaBiz:'Bring your business',
+    t1h:'Visit', t1p:'Lakes, trails, golf and history.',
+    t2h:'Events', t2p:"What's happening around the county.",
+    t3h:'Do Business', t3p:'Sites, incentives and local help.',
+    t4h:'Directory', t4p:'Find local businesses and clubs.',
+    eventsTitle:'Coming up in Union County', eventsSub:'Festivals, meetings and community gatherings. Have an event to add? Call the office.',
+    placesTitle:'Lake country, close to home', placesSub:'Whitewater Memorial State Park and Brookville Lake bring thousands of visitors every summer.',
+    whyTitle:'Small county. Big location.',
+    s1n:'7,087', s1l:'residents (2020 census)', s2n:'1821', s2l:'year Union County was organized', s3n:'162', s3l:'square miles', s4n:'< 1 hr', s4l:'to Cincinnati and Dayton',
+    w1h:'Incentives', w1p:'Local and state business tax credits, with help navigating the paperwork from the UCDC office.',
+    w2h:'Plans & studies', w2p:'Union County and Town of Liberty studies, plus regional SEI READI investment, in one place.',
+    w3h:'A real person to call', w3p:'Looking at a site or starting a business? The UCDC director will walk you through it.',
+    bizTitle:'Member directory', bizSub:'Local businesses, clubs and organizations that support the UCDC.',
+    contactTitle:'Talk to the UCDC', contactBody:'The Union County Development Corporation promotes tourism and economic development across Union County, Indiana.',
+    address:'5 W High St, Liberty, IN 47353', phone:'765.458.5976', email:'unioncodc@etczone.com', hours:'Call ahead for office hours',
+    footer:'Concept site prepared as a demonstration. © Union County, Indiana.'
+  },
+  events:[
+    {id:'e1',title:'Small Business Saturday',date:'2026-11-28',where:'Downtown Liberty',desc:'Shop local around the courthouse square.',tag:'Sample'},
+    {id:'e2',title:'Holiday Open House',date:'2026-12-05',where:'UCDC Office, 5 W High St',desc:'Cocoa, cookies and a look at what’s new in the county.',tag:'Sample'},
+    {id:'e3',title:'UCDC Board Meeting',date:'2027-01-12',where:'UCDC Office',desc:'Open to members.',tag:'Sample'},
+    {id:'e4',title:'Business Breakfast',date:'2027-02-10',where:'Liberty',desc:'Coffee and networking for local owners.',tag:'Sample'},
+    {id:'e5',title:'Liberty 4th of July Festival',date:'2027-07-04',where:'Liberty',desc:'Museum tours, chicken dinners and pancake breakfasts, a freedom run and the freckle contest.',tag:'Sample'}
+  ],
+  places:[
+    {id:'p1',name:'Whitewater Memorial State Park',cat:'Parks & Outdoors',desc:'A 200-acre lake with Brookville Reservoir access, hiking, boating, camping and nine miles of horse trails. A state park since 1949.',addr:'Liberty, IN',img:null},
+    {id:'p2',name:'Brookville Lake — Mounds & Quakertown SRAs',cat:'Parks & Outdoors',desc:'A 5,260-acre lake with 25+ miles of trails, two beaches, 400+ campsites and Ordovician fossil beds.',addr:'Brookville Lake',img:null},
+    {id:'p3',name:'Depot Museum & Templeton Log Cabin',cat:'History',desc:'Union County Historical Society sites. Seasonal hours or visits by appointment: (765) 458-6285.',addr:'Courthouse Square, Liberty',img:null},
+    {id:'p4',name:'End of Trails Campground',cat:'Camping',desc:'A small seasonal campground, open mid-April through mid-October.',addr:'Liberty, IN',img:null},
+    {id:'p5',name:'Liberty Country Club',cat:'Golf & Sports',desc:'Golf in Union County since 1927.',addr:'1391 U.S. Highway 27 North, Liberty',img:null},
+    {id:'p6',name:'Harbor Links Golf Course',cat:'Golf & Sports',desc:'Call (765) 458-7431 for tee times.',addr:'15179 Old State Road 101, Liberty',img:null},
+    {id:'p7',name:"Frame's Outdoor Archery & Conference Center",cat:'Golf & Sports',desc:'Indoor archery that converts into a conference space for up to 250 people.',addr:'Union County, IN',img:null},
+    {id:'p8',name:'Whitewater Valley Motor Speedway',cat:'Golf & Sports',desc:'Short-track racing in lake country.',addr:'Liberty, IN',img:null}
+  ],
+  businesses:[
+    {id:'b1',name:'American Legion Post #122',cat:'Clubs & Organizations',addr:'4 West High Street, Liberty, IN',phone:'',web:''},
+    {id:'b2',name:'C.I.D.R.A. Racing',cat:'Automotive',addr:'304 East Vine Street, Liberty, IN',phone:'765-458-6259',web:''},
+    {id:'b3',name:'Liberty Country Club',cat:'Sports & Recreation',addr:'1391 U.S. Highway 27 North, Liberty, IN',phone:'765-458-5664',web:'https://libertycountryclub.com'},
+    {id:'b4',name:'Liberty Lions Club',cat:'Clubs & Organizations',addr:'3751 East State Road 44, Liberty, IN',phone:'',web:''},
+    {id:'b5',name:'The Junction',cat:'Clubs & Organizations',addr:'33 Junction Street, West College Corner, IN',phone:'',web:''},
+    {id:'b6',name:'Union County Foundation',cat:'Nonprofit',addr:'404 Eaton Street, Liberty, IN',phone:'765-458-7664',web:''},
+    {id:'b7',name:'Union County Co-op',cat:'Agricultural',addr:'101 West Campbell, Liberty, IN 47353',phone:'765-458-5141',web:''},
+    {id:'b8',name:'Union County Public Library',cat:'Library',addr:'2 East Seminary Street, Liberty, IN 47353',phone:'',web:'http://www.ucplib.com'}
+  ]
+};
+const THEMES = {
+  lakeside:{label:'Lakeside',primary:'#1f5f5b',accent:'#e0a43a',bg:'#f6f1e7'},
+  meadow:{label:'Meadow',primary:'#3d6b2f',accent:'#e07a3a',bg:'#f3f2e8'},
+  harvest:{label:'Harvest',primary:'#7a3b1d',accent:'#d9a23b',bg:'#f7efe1'},
+  dusk:{label:'Dusk',primary:'#2b3a67',accent:'#f2b84b',bg:'#f2f0ec'}
+};
+const ICONS = {
+  'Parks & Outdoors':'<path d="M12 2 4 14h5l-3 6h12l-3-6h5z"/><path d="M12 20v2"/>',
+  'History':'<path d="M3 21h18M4 10h16M12 3l9 7H3z"/><path d="M6 10v11M10 10v11M14 10v11M18 10v11"/>',
+  'Camping':'<path d="M3 20 12 4l9 16z"/><path d="M12 20l-3-6h6z"/>',
+  'Golf & Sports':'<path d="M7 21V3l10 4-10 4"/><circle cx="16" cy="19" r="2"/>'
+};
+const GRADS = ['#1f5f5b,#4f9a8f','#3d6b2f,#89a85b','#7a3b1d,#c47b44','#2b3a67,#6276b5','#5b4a2f,#b39a5b'];
+const KEY='ucdc-concept-v1';
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const clone=o=>JSON.parse(JSON.stringify(o));
+const uid=p=>p+Math.random().toString(36).slice(2,8);
+
+// ---- load state ----
+let embedded=null; try{embedded=JSON.parse($('#site-data').textContent)}catch(e){}
+const REV = embedded&&embedded.rev || 'base';
+let state = embedded&&embedded.state ? embedded.state : clone(DEFAULT);
+try{const s=JSON.parse(localStorage.getItem(KEY)); if(s&&s.rev===REV&&s.state) state=s.state;}catch(e){}
+// fill any missing keys from defaults
+for(const k in DEFAULT.text) if(state.text[k]==null) state.text[k]=DEFAULT.text[k];
+
+let saveTimer;
+function save(){
+  clearTimeout(saveTimer);
+  saveTimer=setTimeout(()=>{
+    try{localStorage.setItem(KEY,JSON.stringify({rev:REV,state})); note('Saved')}
+    catch(e){note('Not saved: browser storage full or blocked')}
+  },300);
+}
+function note(t){const n=$('#savedNote'); if(n){n.textContent=t; clearTimeout(n._t); n._t=setTimeout(()=>n.textContent='',2000);}}
+function toast(t){const el=$('#toast'); el.textContent=t; el.classList.add('show'); clearTimeout(el._t); el._t=setTimeout(()=>el.classList.remove('show'),2400);}
+
+// ---- theme ----
+function applyTheme(){
+  const t = state.custom || THEMES[state.theme] || THEMES.lakeside;
+  const r=document.documentElement.style;
+  r.setProperty('--primary',t.primary); r.setProperty('--accent',t.accent); r.setProperty('--bg',t.bg);
+}
+
+// ---- render ----
+function renderText(){
+  $$('[data-edit]').forEach(el=>{ if(document.activeElement!==el) el.textContent=state.text[el.dataset.edit]??''; });
+  $('#phoneLink').href='tel:'+state.text.phone.replace(/[^\d+]/g,'');
+  $('#emailLink').href='mailto:'+state.text.email.trim();
+}
+function renderHero(){
+  const hero=$('.hero'), ph=$('#heroPhoto');
+  if(state.heroPhoto){ph.hidden=false; ph.style.backgroundImage=`url(${state.heroPhoto})`; $('#heroArt').hidden=true; hero.classList.add('has-photo');}
+  else{ph.hidden=true; $('#heroArt').hidden=false; hero.classList.remove('has-photo');}
+}
+function parseDate(s){const [y,m,d]=(s||'').split('-').map(Number); return y?new Date(y,m-1,d):null;}
+function renderEvents(){
+  const today=new Date(); today.setHours(0,0,0,0);
+  const list=state.events.filter(e=>{const d=parseDate(e.date); return d&&d>=today}).sort((a,b)=>a.date.localeCompare(b.date));
+  $('#eventList').innerHTML = list.length? list.map(e=>{
+    const d=parseDate(e.date);
+    return `<article class="event" data-item="events" data-id="${e.id}">
+      <div class="date"><div class="m">${d.toLocaleString('en-US',{month:'short'})}</div><div class="d">${d.getDate()}</div></div>
+      <div><h3>${esc(e.title)}${e.tag?`<span class="tag">${esc(e.tag)}</span>`:''}</h3>
+      <div class="meta">${d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'})}${e.where?' · '+esc(e.where):''}</div>
+      <p>${esc(e.desc)}</p></div></article>`;
+  }).join('') : '<p class="empty">No upcoming events yet.</p>';
+}
+let placeFilter='All', bizFilter='All';
+function renderPlaces(){
+  const cats=['All',...new Set(state.places.map(p=>p.cat).filter(Boolean))];
+  if(!cats.includes(placeFilter)) placeFilter='All';
+  $('#placeChips').innerHTML=cats.map(c=>`<button class="chip ${c===placeFilter?'on':''}" data-c="${esc(c)}">${esc(c)}</button>`).join('');
+  const list=state.places.filter(p=>placeFilter==='All'||p.cat===placeFilter);
+  $('#placeList').innerHTML=list.map((p,i)=>{
+    const bg = p.img ? `background-image:url(${p.img})` : `background-image:linear-gradient(135deg,${GRADS[state.places.indexOf(p)%GRADS.length]})`;
+    const icon = p.img ? '' : `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ICONS[p.cat]||ICONS['Parks & Outdoors']}</svg>`;
+    return `<article class="place" data-item="places" data-id="${p.id}">
+      <div class="pic" style="${bg}">${icon}<span class="cat">${esc(p.cat)}</span></div>
+      <div class="txt"><h3>${esc(p.name)}</h3><p>${esc(p.desc)}</p>${p.addr?`<div class="addr">📍 ${esc(p.addr)}</div>`:''}</div></article>`;
+  }).join('') || '<p class="empty">No places yet.</p>';
+}
+function renderBiz(){
+  const cats=['All',...new Set(state.businesses.map(b=>b.cat).filter(Boolean))];
+  if(!cats.includes(bizFilter)) bizFilter='All';
+  $('#bizChips').innerHTML=cats.map(c=>`<button class="chip ${c===bizFilter?'on':''}" data-c="${esc(c)}">${esc(c)}</button>`).join('');
+  const q=$('#bizSearch').value.trim().toLowerCase();
+  const list=state.businesses.filter(b=>(bizFilter==='All'||b.cat===bizFilter)&&(!q||[b.name,b.cat,b.addr].join(' ').toLowerCase().includes(q))).sort((a,b)=>a.name.localeCompare(b.name));
+  $('#bizList').innerHTML=list.map(b=>`<article class="bcard" data-item="businesses" data-id="${b.id}">
+    <div class="c">${esc(b.cat)}</div><h3>${esc(b.name)}</h3><div class="a">${esc(b.addr)}</div>
+    <div class="links">${b.phone?`<a href="tel:${esc(b.phone.replace(/[^\d+]/g,''))}">${esc(b.phone)}</a>`:''}${b.web?`<a href="${esc(b.web)}" target="_blank" rel="noopener">Website ↗</a>`:''}</div></article>`).join('') || '<p class="empty">No matches.</p>';
+}
+function renderAll(){applyTheme();renderText();renderHero();renderEvents();renderPlaces();renderBiz();}
+
+// ---- public interactions ----
+const burger=$('.burger'), nav=$('nav.main');
+burger.addEventListener('click',()=>{const o=nav.classList.toggle('open'); burger.classList.toggle('open',o); burger.setAttribute('aria-expanded',o)});
+nav.addEventListener('click',e=>{if(e.target.tagName==='A'){nav.classList.remove('open');burger.classList.remove('open')}});
+$('#placeChips').addEventListener('click',e=>{const c=e.target.closest('.chip'); if(c){placeFilter=c.dataset.c; renderPlaces();}});
+$('#bizChips').addEventListener('click',e=>{const c=e.target.closest('.chip'); if(c){bizFilter=c.dataset.c; renderBiz();}});
+$('#bizSearch').addEventListener('input',renderBiz);
+
+// ---- editor ----
+let editing=false, tab='events', openId=null;
+function setEditing(on){
+  editing=on; document.body.classList.toggle('editing',on); document.body.classList.remove('panel-min');
+  $$('[data-edit]').forEach(el=>{ if(on){el.setAttribute('contenteditable','true'); el.spellcheck=true;} else el.removeAttribute('contenteditable'); });
+  $('#editFab span').textContent = on?'Preview':'Edit this site';
+  if(on) renderPanel();
+}
+$('#editFab').addEventListener('click',()=>setEditing(!editing));
+$('#doneBtn').addEventListener('click',()=>setEditing(false));
+$('#minBtn').addEventListener('click',()=>{const m=document.body.classList.toggle('panel-min'); $('#minBtn').textContent=m?'Show':'Hide';});
+
+document.addEventListener('input',e=>{
+  const el=e.target.closest('[data-edit]'); if(!el||!editing) return;
+  state.text[el.dataset.edit]=el.innerText.replace(/\n{3,}/g,'\n\n');
+  if(['phone','email'].includes(el.dataset.edit)){ $('#phoneLink').href='tel:'+state.text.phone.replace(/[^\d+]/g,''); $('#emailLink').href='mailto:'+state.text.email.trim(); }
+  save();
+});
+document.addEventListener('keydown',e=>{
+  const el=e.target.closest&&e.target.closest('[data-single]');
+  if(el&&editing&&e.key==='Enter'){e.preventDefault(); el.blur();}
+});
+document.addEventListener('paste',e=>{ // paste as plain text
+  const el=e.target.closest&&e.target.closest('[data-edit]'); if(!el||!editing) return;
+  e.preventDefault(); document.execCommand('insertText',false,(e.clipboardData||window.clipboardData).getData('text'));
+});
+document.addEventListener('click',e=>{
+  if(!editing) return;
+  if(e.target.closest('.panel')||e.target.closest('.edit-fab')) return;
+  if(e.target.closest('[data-edit]')){ const a=e.target.closest('a'); if(a) e.preventDefault(); return; }
+  const card=e.target.closest('[data-item]');
+  if(card){ e.preventDefault(); tab=card.dataset.item; openId=card.dataset.id; document.body.classList.remove('panel-min'); renderPanel(true); return; }
+  const a=e.target.closest('a'); if(a && a.getAttribute('href')&&!a.getAttribute('href').startsWith('#')) e.preventDefault();
+},true);
+
+$('#tabs').addEventListener('click',e=>{const b=e.target.closest('button'); if(b){tab=b.dataset.tab; openId=null; renderPanel();}});
+
+const SCHEMAS={
+  events:{label:'event', fields:[['title','Title'],['date','Date','date'],['where','Location'],['desc','Description','textarea'],['tag','Badge (optional)']], blank:()=>({id:uid('e'),title:'New event',date:new Date(Date.now()+864e5*7).toISOString().slice(0,10),where:'',desc:'',tag:''}), sum:i=>`${esc(i.title)} <small>${esc(i.date)}</small>`},
+  places:{label:'place', fields:[['name','Name'],['cat','Category','cat'],['desc','Description','textarea'],['addr','Address / area'],['img','Photo','image']], blank:()=>({id:uid('p'),name:'New place',cat:'Parks & Outdoors',desc:'',addr:'',img:null}), sum:i=>`${esc(i.name)} <small>${esc(i.cat)}</small>`},
+  businesses:{label:'listing', fields:[['name','Name'],['cat','Category','cat'],['addr','Address'],['phone','Phone'],['web','Website']], blank:()=>({id:uid('b'),name:'New business',cat:'Business',addr:'',phone:'',web:''}), sum:i=>`${esc(i.name)} <small>${esc(i.cat)}</small>`}
+};
+const HELP={
+  events:'Past events hide themselves from the page automatically. Click any event on the page to jump to it here.',
+  places:'Upload a photo to replace the illustrated header. Photos are shrunk automatically so the site stays fast.',
+  businesses:'Directory listings appear alphabetically. Categories create the filter buttons on their own.'
+};
+function renderPanel(scroll){
+  $$('#tabs button').forEach(b=>b.classList.toggle('on',b.dataset.tab===tab));
+  const pb=$('#pbody');
+  if(SCHEMAS[tab]){
+    const sc=SCHEMAS[tab], items=state[tab];
+    const cats=[...new Set(items.map(i=>i.cat).filter(Boolean))];
+    pb.innerHTML=`<p class="help">${HELP[tab]}</p>
+      <button class="pbtn primary wide" data-act="add">+ Add ${sc.label}</button>
+      <datalist id="catlist">${cats.map(c=>`<option value="${esc(c)}">`).join('')}</datalist>
+      ${items.map(it=>`<details class="item" data-id="${it.id}" ${it.id===openId?'open':''}>
+        <summary><span class="s">${sc.sum(it)}</span><span>✎</span></summary>
+        <div class="fields">${sc.fields.map(([k,l,t])=>fieldHTML(it,k,l,t)).join('')}
+          <div class="row"><button class="pbtn" data-act="dup">Duplicate</button><button class="pbtn" data-act="up">↑</button><button class="pbtn" data-act="down">↓</button><button class="pbtn danger" data-act="del">Delete</button></div>
+        </div></details>`).join('')}`;
+    if(scroll&&openId){const d=pb.querySelector(`details[data-id="${openId}"]`); if(d){d.scrollIntoView({block:'start'}); const f=d.querySelector('input,textarea'); f&&f.focus({preventScroll:true});}}
+  } else if(tab==='look'){
+    pb.innerHTML=`<p class="help">Pick a color scheme, or fine-tune your own. Text everywhere on the page is edited by clicking it directly.</p>
+      <div class="swatches">${Object.entries(THEMES).map(([k,t])=>`<button class="sw ${!state.custom&&state.theme===k?'on':''}" data-theme="${k}"><div class="dots"><i style="background:${t.primary}"></i><i style="background:${t.accent}"></i><i style="background:${t.bg}"></i></div>${t.label}</button>`).join('')}</div>
+      <div class="colorrow">
+        <label>Main<input type="color" data-color="primary" value="${cur().primary}"></label>
+        <label>Accent<input type="color" data-color="accent" value="${cur().accent}"></label>
+        <label>Background<input type="color" data-color="bg" value="${cur().bg}"></label>
+      </div>
+      <p style="font-weight:700;margin:0 0 8px">Top banner</p>
+      <button class="pbtn wide" data-act="heroPhoto">🖼  Use a photo for the banner…</button>
+      ${state.heroPhoto?'<button class="pbtn wide" data-act="heroArt">↺  Go back to the illustration</button>':''}
+      <input type="file" accept="image/*" id="heroFile" hidden>`;
+  } else if(tab==='save'){
+    pb.innerHTML=`<p class="help">Changes save automatically in this browser. To share them or move them to another computer, download a copy.</p>
+      <button class="pbtn primary wide" data-act="dlhtml">⬇  Download site with my changes (.html)</button>
+      <label style="display:flex;gap:8px;align-items:center;font-size:14px;margin:-2px 0 16px"><input type="checkbox" id="lockChk"> Hide the Edit button in the download (add <code>#edit</code> to the address to bring it back)</label>
+      <button class="pbtn wide" data-act="export">⬇  Back up content only (.json)</button>
+      <button class="pbtn wide" data-act="import">⬆  Restore from a backup…</button>
+      <input type="file" accept="application/json,.json" id="importFile" hidden>
+      <hr style="border:0;border-top:1px solid #eee;margin:18px 0">
+      <button class="pbtn danger wide" data-act="reset">Reset everything to the demo content</button>`;
+  }
+}
+function cur(){return state.custom || THEMES[state.theme];}
+function fieldHTML(it,k,l,t){
+  const v=esc(it[k]??'');
+  if(t==='textarea') return `<label>${l}<textarea data-k="${k}">${v}</textarea></label>`;
+  if(t==='date') return `<label>${l}<input type="date" data-k="${k}" value="${v}"></label>`;
+  if(t==='cat') return `<label>${l}<input data-k="${k}" value="${v}" list="catlist"></label>`;
+  if(t==='image') return `<label>${l}<div class="row"><button class="pbtn" data-act="img">${it.img?'Replace photo':'Upload photo'}</button>${it.img?'<button class="pbtn danger" data-act="noimg">Remove</button>':''}</div><input type="file" accept="image/*" data-act-file="img" hidden></label>`;
+  return `<label>${l}<input data-k="${k}" value="${v}"></label>`;
+}
+function rerenderSection(){ if(tab==='events')renderEvents(); else if(tab==='places')renderPlaces(); else if(tab==='businesses')renderBiz(); }
+
+$('#pbody').addEventListener('input',e=>{
+  const f=e.target;
+  if(f.dataset.k){
+    const d=f.closest('details'), it=state[tab].find(i=>i.id===d.dataset.id); if(!it) return;
+    it[f.dataset.k]=f.value; d.querySelector('summary .s').innerHTML=SCHEMAS[tab].sum(it);
+    rerenderSection(); save();
+  } else if(f.dataset.color){
+    state.custom={...cur(),[f.dataset.color]:f.value}; applyTheme(); save();
+    $$('.sw').forEach(s=>s.classList.remove('on'));
+  }
+});
+$('#pbody').addEventListener('change',async e=>{
+  const f=e.target;
+  if(f.dataset.actFile==='img'&&f.files[0]){
+    const it=state[tab].find(i=>i.id===f.closest('details').dataset.id);
+    it.img=await shrink(f.files[0],1000); openId=it.id; renderPlaces(); renderPanel(); save();
+  }
+  if(f.id==='heroFile'&&f.files[0]){ state.heroPhoto=await shrink(f.files[0],1800); renderHero(); renderPanel(); save(); }
+  if(f.id==='importFile'&&f.files[0]){
+    try{const data=JSON.parse(await f.files[0].text()); if(!data.text||!data.events) throw 0; state=data; for(const k in DEFAULT.text) if(state.text[k]==null) state.text[k]=DEFAULT.text[k]; renderAll(); setEditing(true); save(); toast('Backup restored');}
+    catch(err){toast('That file isn’t a site backup');}
+  }
+});
+$('#pbody').addEventListener('click',e=>{
+  const b=e.target.closest('[data-act],[data-theme]'); if(!b) return;
+  if(b.dataset.theme){ state.theme=b.dataset.theme; state.custom=null; applyTheme(); renderPanel(); save(); return; }
+  const act=b.dataset.act, d=b.closest('details'), list=state[tab];
+  const idx=d?list.findIndex(i=>i.id===d.dataset.id):-1;
+  if(act!=='img') e.preventDefault();
+  switch(act){
+    case 'add': { const n=SCHEMAS[tab].blank(); list.unshift(n); openId=n.id; rerenderSection(); renderPanel(true); save(); break; }
+    case 'del': if(confirmInline(b)){ list.splice(idx,1); rerenderSection(); renderPanel(); save(); toast('Deleted'); } break;
+    case 'dup': { const c={...clone(list[idx]),id:uid(tab[0])}; c.name&&(c.name+=' (copy)'); c.title&&(c.title+=' (copy)'); list.splice(idx+1,0,c); openId=c.id; rerenderSection(); renderPanel(true); save(); break; }
+    case 'up': case 'down': { const j=act==='up'?idx-1:idx+1; if(j<0||j>=list.length) break; [list[idx],list[j]]=[list[j],list[idx]]; openId=list[j].id; rerenderSection(); renderPanel(); save(); break; }
+    case 'img': e.preventDefault(); b.closest('label').querySelector('input[type=file]').click(); break;
+    case 'noimg': list[idx].img=null; openId=list[idx].id; renderPlaces(); renderPanel(); save(); break;
+    case 'heroPhoto': $('#heroFile').click(); break;
+    case 'heroArt': state.heroPhoto=null; renderHero(); renderPanel(); save(); break;
+    case 'export': download('union-county-site-backup.json',JSON.stringify(state,null,2),'application/json'); break;
+    case 'import': $('#importFile').click(); break;
+    case 'dlhtml': downloadHTML($('#lockChk').checked); break;
+    case 'reset': if(confirmInline(b)){ state=clone(DEFAULT); placeFilter=bizFilter='All'; renderAll(); setEditing(true); save(); toast('Reset to demo content'); } break;
+  }
+});
+function confirmInline(b){ // second click confirms, no browser dialogs
+  if(b.dataset.armed){ return true; }
+  const old=b.textContent; b.dataset.armed='1'; b.textContent='Click again to confirm';
+  setTimeout(()=>{ if(b.isConnected){ delete b.dataset.armed; b.textContent=old; } },3000);
+  return false;
+}
+function shrink(file,max){
+  return new Promise((res,rej)=>{
+    const fr=new FileReader();
+    fr.onload=()=>{const img=new Image(); img.onload=()=>{
+      const s=Math.min(1,max/Math.max(img.width,img.height)); const c=document.createElement('canvas');
+      c.width=Math.round(img.width*s); c.height=Math.round(img.height*s); c.getContext('2d').drawImage(img,0,0,c.width,c.height);
+      res(c.toDataURL('image/jpeg',.82));
+    }; img.onerror=rej; img.src=fr.result;};
+    fr.onerror=rej; fr.readAsDataURL(file);
+  });
+}
+function download(name,content,type){
+  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([content],{type})); a.download=name;
+  document.body.appendChild(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href); a.remove();},500);
+}
+function downloadHTML(lock){
+  const wasEditing=editing; setEditing(false);
+  const docEl=document.documentElement.cloneNode(true);
+  docEl.querySelector('#site-data').textContent=JSON.stringify({rev:uid('r'),state}).replace(/</g,'\\u003c');
+  docEl.style.cssText=''; docEl.removeAttribute('data-locked');
+  if(lock) docEl.setAttribute('data-locked','');
+  docEl.querySelector('body').className='';
+  docEl.querySelector('#toast').className='toast';
+  // clear rendered content so the copy renders fresh from its data
+  ['#eventList','#placeList','#bizList','#placeChips','#bizChips'].forEach(s=>docEl.querySelector(s).innerHTML='');
+  download('union-county-site.html','<!DOCTYPE html>\n'+docEl.outerHTML,'text/html');
+  if(wasEditing) setEditing(true);
+  toast('Downloaded. Open the file to see your site.');
+}
+
+// ---- boot ----
+renderAll();
+if(location.hash==='#edit'){ document.documentElement.removeAttribute('data-locked'); setEditing(true); }
+window.addEventListener('hashchange',()=>{ if(location.hash==='#edit'){ document.documentElement.removeAttribute('data-locked'); setEditing(true);} });
+})();
+</script>
+</body>
+</html>
