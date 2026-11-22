@@ -144,6 +144,66 @@ section.block{padding:84px 0}
 @media (max-width:860px){.contact{grid-template-columns:1fr}}
 footer{padding:34px 0 60px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
 
+/* header call button */
+.hdr-r{display:flex;align-items:center;gap:6px}
+.callbtn{display:none;width:44px;height:44px;border-radius:12px;background:var(--primary);color:var(--primary-ink);place-items:center}
+.callbtn svg{width:20px;height:20px}
+/* see-all, teaser, views */
+.more{display:inline-flex;margin-top:22px;font-weight:700;color:var(--primary);text-decoration:none;font-size:16px}
+.more:hover{text-decoration:underline}
+.teaser{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:32px;display:grid;grid-template-columns:1.1fr 1fr;gap:18px 32px;align-items:end}
+.teaser .chips{grid-column:1/-1}
+.teaser>*{min-width:0}
+.date{align-self:flex-start}
+html,body{overflow-x:clip}
+.tsearch{display:flex;gap:10px}
+.tsearch input{flex:1;min-width:0;font:inherit;padding:13px 18px;border-radius:999px;border:1px solid var(--line);background:var(--bg)}
+.tsearch .btn{padding:12px 20px}
+a.chip{text-decoration:none}
+.back{display:inline-block;margin-bottom:18px;font-weight:700;text-decoration:none;color:var(--primary)}
+.view{min-height:70vh}
+.swipe-hint{display:none}
+.foot{display:grid;gap:6px}
+.fcontact a{color:var(--primary);font-weight:600;text-decoration:none}
+
+@media (max-width:860px){
+  body{font-size:16px}
+  .concept{font-size:11.5px;padding:6px 12px}
+  .callbtn{display:grid}
+  .brand .name{font-size:18px}
+  .brand .name small{font-size:9.5px;letter-spacing:.07em;white-space:nowrap}
+  .tsearch .btn{padding:12px 16px}
+  .hero .inner{padding:40px 0 92px}
+  .hero h1{font-size:clamp(36px,10vw,48px)}
+  .hero p{font-size:16.5px;margin:12px 0 20px}
+  .hero .eyebrow{font-size:11.5px}
+  .btns{gap:8px}
+  .btn{padding:12px 18px;font-size:15px}
+  .tiles{grid-template-columns:repeat(4,1fr);gap:8px;margin-top:-56px}
+  .tile{padding:12px 6px;text-align:center;border-radius:14px}
+  .tile .ic{margin:0 auto 6px;width:38px;height:38px}
+  .tile h3{font-size:14px;font-family:var(--body);font-weight:700}
+  .tile p{display:none}
+  section.block{padding:52px 0}
+  .head{margin-bottom:18px}
+  .event{padding:14px;gap:12px}
+  .places{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 -22px;padding:0 22px 6px;scrollbar-width:none}
+  .places::-webkit-scrollbar{display:none}
+  .place{flex:0 0 82%;scroll-snap-align:start}
+  .place .pic{aspect-ratio:16/8}
+  #placeChips{flex-wrap:nowrap;overflow-x:auto;margin:0 -22px;padding:0 22px;scrollbar-width:none}
+  #placeChips::-webkit-scrollbar{display:none}
+  .chip{white-space:nowrap}
+  .swipe-hint{display:block;font-size:13px;color:var(--muted);margin-top:8px;text-align:right}
+  .stats{margin:24px 0 28px;gap:14px}
+  .stat .n{font-size:36px}
+  .col{padding:18px}
+  .cols{gap:12px}
+  .teaser{grid-template-columns:1fr;padding:22px}
+  .teaser .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .card{padding:20px}
+}
+
 /* ===== EDITOR ===== */
 .edit-fab{position:fixed;right:20px;bottom:20px;z-index:60;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:14px 20px;font:700 15px var(--body);display:flex;gap:8px;align-items:center;box-shadow:0 10px 30px rgba(0,0,0,.25);cursor:pointer}
 .edit-fab svg{width:18px;height:18px}
@@ -215,17 +275,21 @@ details.item summary small{color:#888;font-weight:500}
       <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M5 20V10l7-5 7 5v10"/><path d="M12 5V2"/><path d="M9 20v-5h6v5"/></svg></span>
       <span class="name"><span data-edit="brand" data-single></span><small data-edit="brandSub" data-single></small></span>
     </a>
-    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="hdr-r">
+      <a class="callbtn" id="callBtn" href="#" aria-label="Call the UCDC office"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></a>
+      <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
     <nav class="main">
       <a href="#events">Events</a>
       <a href="#visit">Visit</a>
       <a href="#business">Do Business</a>
-      <a href="#directory">Directory</a>
+      <a href="#/directory">Directory</a>
       <a href="#contact" class="cta">Contact</a>
     </nav>
   </div>
 </header>
 
+<main id="home">
 <section class="hero" id="top">
   <div class="art" id="heroArt">
     <svg viewBox="0 0 1440 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
@@ -266,7 +330,7 @@ details.item summary small{color:#888;font-weight:500}
     <a class="tile" href="#visit"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 14h5l-3 6h12l-3-6h5z"/><path d="M12 20v2"/></svg></div><h3 data-edit="t1h" data-single></h3><p data-edit="t1p"></p></a>
     <a class="tile" href="#events"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div><h3 data-edit="t2h" data-single></h3><p data-edit="t2p"></p></a>
     <a class="tile" href="#business"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6"/></svg></div><h3 data-edit="t3h" data-single></h3><p data-edit="t3p"></p></a>
-    <a class="tile" href="#directory"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></div><h3 data-edit="t4h" data-single></h3><p data-edit="t4p"></p></a>
+    <a class="tile" href="#/directory"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></div><h3 data-edit="t4h" data-single></h3><p data-edit="t4p"></p></a>
   </div>
 </div>
 
@@ -274,6 +338,7 @@ details.item summary small{color:#888;font-weight:500}
   <div class="wrap">
     <div class="head"><div><div class="eyebrow">Calendar</div><h2 data-edit="eventsTitle" data-single></h2><p class="sub" data-edit="eventsSub"></p></div></div>
     <div class="events" id="eventList"></div>
+    <div id="eventsMore"></div>
   </div>
 </section>
 
@@ -284,6 +349,7 @@ details.item summary small{color:#888;font-weight:500}
       <div class="chips" id="placeChips"></div>
     </div>
     <div class="places" id="placeList"></div>
+    <div class="swipe-hint">Swipe for more →</div>
   </div>
 </section>
 
@@ -307,9 +373,11 @@ details.item summary small{color:#888;font-weight:500}
 
 <section class="block" id="directory">
   <div class="wrap">
-    <div class="head"><div><div class="eyebrow">Members</div><h2 data-edit="bizTitle" data-single></h2><p class="sub" data-edit="bizSub"></p></div></div>
-    <div class="search"><input id="bizSearch" type="search" placeholder="Search businesses, clubs, addresses…" aria-label="Search directory"><div class="chips" id="bizChips"></div></div>
-    <div class="biz" id="bizList"></div>
+    <div class="teaser">
+      <div><div class="eyebrow">Members</div><h2 data-edit="bizTitle" data-single></h2><p class="sub" data-edit="bizSub"></p></div>
+      <form class="tsearch" id="teaserForm"><input id="teaserQ" type="search" placeholder="Find a business…" aria-label="Search the directory"><button class="btn solid" type="submit">Search</button></form>
+      <div class="chips" id="teaserChips"></div>
+    </div>
   </div>
 </section>
 
@@ -325,7 +393,33 @@ details.item summary small{color:#888;font-weight:500}
   </div>
 </section>
 
-<footer><div class="wrap" data-edit="footer"></div></footer>
+</main>
+
+<main id="view-directory" class="view" hidden>
+  <section class="block">
+    <div class="wrap">
+      <a class="back" href="#home">← Home</a>
+      <div class="head"><div><div class="eyebrow">Members</div><h2>Member directory</h2></div></div>
+      <div class="search"><input id="bizSearch" type="search" placeholder="Search businesses, clubs, addresses…" aria-label="Search directory"><div class="chips" id="bizChips"></div></div>
+      <div class="biz" id="bizList"></div>
+    </div>
+  </section>
+</main>
+
+<main id="view-events" class="view" hidden>
+  <section class="block">
+    <div class="wrap">
+      <a class="back" href="#home">← Home</a>
+      <div class="head"><div><div class="eyebrow">Calendar</div><h2>All upcoming events</h2></div></div>
+      <div class="events" id="eventsAll"></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap foot">
+  <div class="fcontact"><a id="footPhone" href="#"></a> · <a id="footEmail" href="#"></a></div>
+  <div data-edit="footer"></div>
+</div></footer>
 
 <!-- ===== Editor ===== -->
 <div class="edit-hint">Editing — click any outlined text to change it</div>
@@ -446,8 +540,12 @@ function applyTheme(){
 // ---- render ----
 function renderText(){
   $$('[data-edit]').forEach(el=>{ if(document.activeElement!==el) el.textContent=state.text[el.dataset.edit]??''; });
-  $('#phoneLink').href='tel:'+state.text.phone.replace(/[^\d+]/g,'');
-  $('#emailLink').href='mailto:'+state.text.email.trim();
+  updateContactLinks();
+}
+function updateContactLinks(){
+  const tel='tel:'+state.text.phone.replace(/[^\d+]/g,''), mail='mailto:'+state.text.email.trim();
+  $('#phoneLink').href=tel; $('#callBtn').href=tel; $('#footPhone').href=tel; $('#footPhone').textContent=state.text.phone;
+  $('#emailLink').href=mail; $('#footEmail').href=mail; $('#footEmail').textContent=state.text.email;
 }
 function renderHero(){
   const hero=$('.hero'), ph=$('#heroPhoto');
@@ -458,7 +556,12 @@ function parseDate(s){const [y,m,d]=(s||'').split('-').map(Number); return y?new
 function renderEvents(){
   const today=new Date(); today.setHours(0,0,0,0);
   const list=state.events.filter(e=>{const d=parseDate(e.date); return d&&d>=today}).sort((a,b)=>a.date.localeCompare(b.date));
-  $('#eventList').innerHTML = list.length? list.map(e=>{
+  $('#eventList').innerHTML = eventCards(list.slice(0,3));
+  $('#eventsAll').innerHTML = eventCards(list);
+  $('#eventsMore').innerHTML = list.length>3 ? `<a class="more" href="#/events">See all ${list.length} upcoming events →</a>` : '';
+}
+function eventCards(list){
+  return list.length? list.map(e=>{
     const d=parseDate(e.date);
     return `<article class="event" data-item="events" data-id="${e.id}">
       <div class="date"><div class="m">${d.toLocaleString('en-US',{month:'short'})}</div><div class="d">${d.getDate()}</div></div>
@@ -484,6 +587,7 @@ function renderPlaces(){
 function renderBiz(){
   const cats=['All',...new Set(state.businesses.map(b=>b.cat).filter(Boolean))];
   if(!cats.includes(bizFilter)) bizFilter='All';
+  $('#teaserChips').innerHTML=cats.slice(1).sort().map(c=>`<a class="chip" href="#/directory" data-c="${esc(c)}">${esc(c)}</a>`).join('')+`<a class="chip on" href="#/directory" data-c="All">Browse all ${state.businesses.length} →</a>`;
   $('#bizChips').innerHTML=cats.map(c=>`<button class="chip ${c===bizFilter?'on':''}" data-c="${esc(c)}">${esc(c)}</button>`).join('');
   const q=$('#bizSearch').value.trim().toLowerCase();
   const list=state.businesses.filter(b=>(bizFilter==='All'||b.cat===bizFilter)&&(!q||[b.name,b.cat,b.addr].join(' ').toLowerCase().includes(q))).sort((a,b)=>a.name.localeCompare(b.name));
@@ -500,6 +604,21 @@ nav.addEventListener('click',e=>{if(e.target.tagName==='A'){nav.classList.remove
 $('#placeChips').addEventListener('click',e=>{const c=e.target.closest('.chip'); if(c){placeFilter=c.dataset.c; renderPlaces();}});
 $('#bizChips').addEventListener('click',e=>{const c=e.target.closest('.chip'); if(c){bizFilter=c.dataset.c; renderBiz();}});
 $('#bizSearch').addEventListener('input',renderBiz);
+$('#teaserForm').addEventListener('submit',e=>{e.preventDefault(); if(editing) return; $('#bizSearch').value=$('#teaserQ').value; bizFilter='All'; renderBiz(); location.hash='#/directory';});
+$('#teaserChips').addEventListener('click',e=>{const c=e.target.closest('.chip'); if(c&&!editing){bizFilter=c.dataset.c; $('#bizSearch').value=''; renderBiz();}});
+
+// ---- simple page switching: home, #/directory, #/events ----
+function route(){
+  const h=location.hash;
+  const view = h==='#/directory'?'view-directory' : h==='#/events'?'view-events' : 'home';
+  const changed = $('#'+view).hidden;
+  ['home','view-directory','view-events'].forEach(id=>$('#'+id).hidden = id!==view);
+  if(view!=='home'){ if(changed) window.scrollTo(0,0); return; }
+  if(h==='#home'||h===''||h==='#edit'){ if(changed) window.scrollTo(0,0); return; }
+  const target=document.querySelector(h);
+  if(target) requestAnimationFrame(()=>target.scrollIntoView());
+}
+window.addEventListener('hashchange',route);
 
 // ---- editor ----
 let editing=false, tab='events', openId=null;
@@ -516,7 +635,7 @@ $('#minBtn').addEventListener('click',()=>{const m=document.body.classList.toggl
 document.addEventListener('input',e=>{
   const el=e.target.closest('[data-edit]'); if(!el||!editing) return;
   state.text[el.dataset.edit]=el.innerText.replace(/\n{3,}/g,'\n\n');
-  if(['phone','email'].includes(el.dataset.edit)){ $('#phoneLink').href='tel:'+state.text.phone.replace(/[^\d+]/g,''); $('#emailLink').href='mailto:'+state.text.email.trim(); }
+  if(['phone','email'].includes(el.dataset.edit)) updateContactLinks();
   save();
 });
 document.addEventListener('keydown',e=>{
@@ -671,7 +790,8 @@ function downloadHTML(lock){
   docEl.querySelector('body').className='';
   docEl.querySelector('#toast').className='toast';
   // clear rendered content so the copy renders fresh from its data
-  ['#eventList','#placeList','#bizList','#placeChips','#bizChips'].forEach(s=>docEl.querySelector(s).innerHTML='');
+  ['#eventList','#eventsAll','#eventsMore','#placeList','#bizList','#placeChips','#bizChips','#teaserChips'].forEach(s=>docEl.querySelector(s).innerHTML='');
+  docEl.querySelector('#home').hidden=false; docEl.querySelector('#view-directory').hidden=true; docEl.querySelector('#view-events').hidden=true;
   download('union-county-site.html','<!DOCTYPE html>\n'+docEl.outerHTML,'text/html');
   if(wasEditing) setEditing(true);
   toast('Downloaded. Open the file to see your site.');
@@ -679,6 +799,7 @@ function downloadHTML(lock){
 
 // ---- boot ----
 renderAll();
+route();
 if(location.hash==='#edit'){ document.documentElement.removeAttribute('data-locked'); setEditing(true); }
 window.addEventListener('hashchange',()=>{ if(location.hash==='#edit'){ document.documentElement.removeAttribute('data-locked'); setEditing(true);} });
 })();
